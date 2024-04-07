@@ -42,6 +42,7 @@ import com.intellij.psi.xml.XmlFile;
 import com.intellij.struts2.Struts2Icons;
 import com.intellij.struts2.StrutsBundle;
 import com.intellij.struts2.StrutsIcons;
+import com.intellij.struts2.adapter.BuildableRootsChangeRescanningInfoAdapter;
 import com.intellij.struts2.dom.struts.model.StrutsManager;
 import com.intellij.struts2.facet.StrutsFacet;
 import com.intellij.struts2.facet.ui.StrutsFileSet;
@@ -194,7 +195,7 @@ public class StrutsFileSetCheckingAnnotator implements Annotator {
             ApplicationManager.getApplication()
               .runWriteAction(() -> {
                 Module module = strutsFacet.getModule();
-                BuildableRootsChangeRescanningInfo info = BuildableRootsChangeRescanningInfo.newInstance().addModule(module);
+                BuildableRootsChangeRescanningInfoAdapter info = BuildableRootsChangeRescanningInfoAdapter.newInstance().addModule(module);
                 Module[] dependencies = ModuleRootManager.getInstance(module).getDependencies();
                 for (Module dependency : dependencies) {
                   info.addModule(dependency);

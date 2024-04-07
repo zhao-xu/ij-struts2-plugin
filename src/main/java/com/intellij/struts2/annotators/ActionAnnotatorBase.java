@@ -28,6 +28,7 @@ import com.intellij.psi.xml.XmlFile;
 import com.intellij.struts2.Struts2Icons;
 import com.intellij.struts2.StrutsBundle;
 import com.intellij.struts2.StrutsIcons;
+import com.intellij.struts2.adapter.NavigationGutterIconBuilderAdapter;
 import com.intellij.struts2.dom.struts.action.Action;
 import com.intellij.struts2.dom.struts.action.Result;
 import com.intellij.struts2.dom.struts.model.StrutsManager;
@@ -148,8 +149,8 @@ public abstract class ActionAnnotatorBase extends RelatedItemLineMarkerProvider 
     final String tooltip = actions.size() == 1 ? StrutsBundle.message("annotators.action.goto.tooltip.single") :
         StrutsBundle.message("annotators.action.goto.tooltip");
     final NavigationGutterIconBuilder<DomElement> gutterIconBuilder =
-        NavigationGutterIconBuilder.create(Struts2Icons.Action, NavigationGutterIconBuilder.DEFAULT_DOM_CONVERTOR,
-                                           NavigationGutterIconBuilder.DOM_GOTO_RELATED_ITEM_PROVIDER)
+        NavigationGutterIconBuilder.create(Struts2Icons.Action, NavigationGutterIconBuilderAdapter.DEFAULT_DOM_CONVERTOR,
+                                           NavigationGutterIconBuilderAdapter.DOM_GOTO_RELATED_ITEM_PROVIDER)
                                    .setAlignment(GutterIconRenderer.Alignment.LEFT)
                                    .setPopupTitle(StrutsBundle.message("annotators.action.goto.declaration"))
                                    .setTargets(actions)

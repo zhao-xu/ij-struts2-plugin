@@ -121,7 +121,8 @@ public class StrutsDataModel extends GraphDataModel<BasicStrutsNode, BasicStruts
       return myGroups.get(xmlElement.getContainingFile());
     }
 
-    return super.getGroup(basicStrutsNode);
+    // return super.getGroup(basicStrutsNode);
+    return null;
   }
 
   private void addNode(final BasicStrutsNode node) {
