@@ -26,6 +26,7 @@
         <plugin id="com.intellij.javaee.web"/>
         <plugin id="JavaScript"/>
         <plugin id="com.intellij.java-i18n"/>
+        <plugin id="com.intellij.jsp"/>
     </dependencies>
 
     <!-- optional dependencies -->
