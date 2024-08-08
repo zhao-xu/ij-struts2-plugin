@@ -24,6 +24,7 @@ import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.patterns.ElementPattern;
 import com.intellij.struts2.StrutsConstants;
+import com.intellij.struts2.adapter.WebUtilImplAdapter;
 import com.intellij.struts2.dom.struts.StrutsRoot;
 import com.intellij.util.indexing.FileContent;
 import org.jetbrains.annotations.NotNull;
@@ -63,6 +64,6 @@ public class StrutsFrameworkDetector extends FacetBasedFrameworkDetector<StrutsF
   public boolean isSuitableUnderlyingFacetConfiguration(final FacetConfiguration underlying,
                                                         final StrutsFacetConfiguration configuration,
                                                         final Set<? extends VirtualFile> files) {
-    return WebUtilImpl.isWebFacetConfigurationContainingFiles(underlying, files);
+    return WebUtilImplAdapter.isWebFacetConfigurationContainingFiles(underlying, files);
   }
 }
