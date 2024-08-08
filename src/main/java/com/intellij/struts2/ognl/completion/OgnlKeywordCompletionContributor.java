@@ -15,7 +15,7 @@
 
 package com.intellij.lang.ognl.completion;
 
-import com.intellij.codeInsight.TailType;
+import com.intellij.codeInsight.TailTypes;
 import com.intellij.codeInsight.completion.*;
 import com.intellij.codeInsight.lookup.LookupElementBuilder;
 import com.intellij.codeInsight.lookup.TailTypeDecorator;
@@ -135,7 +135,7 @@ public class OgnlKeywordCompletionContributor extends CompletionContributor impl
                                            @NotNull final CompletionResultSet completionResultSet) {
                for (final String keyword : keywords) {
                  final LookupElementBuilder builder = LookupElementBuilder.create(keyword).bold();
-                 completionResultSet.addElement(TailTypeDecorator.withTail(builder, TailType.SPACE));
+                 completionResultSet.addElement(TailTypeDecorator.withTail(builder, TailTypes.spaceType()));
                }
              }
            });

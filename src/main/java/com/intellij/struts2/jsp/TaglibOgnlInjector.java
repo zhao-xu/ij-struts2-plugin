@@ -19,7 +19,6 @@ import com.intellij.lang.injection.MultiHostRegistrar;
 import com.intellij.lang.ognl.OgnlLanguage;
 import com.intellij.lang.ognl.OgnlLanguageInjector;
 import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.fileTypes.StdFileTypes;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.patterns.ElementPattern;
 import com.intellij.patterns.XmlAttributeValuePattern;
@@ -27,6 +26,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLanguageInjectionHost;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.struts2.StrutsConstants;
+import com.intellij.struts2.adapter.StdFileTypesAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -74,7 +74,7 @@ final class TaglibOgnlInjector implements MultiHostInjector, DumbAware {
   public void getLanguagesToInject(@NotNull final MultiHostRegistrar multiHostRegistrar,
                                    @NotNull final PsiElement psiElement) {
     final FileType fileType = psiElement.getContainingFile().getFileType();
-    if (fileType != StdFileTypes.JSP && fileType != StdFileTypes.JSPX) {
+    if (fileType != StdFileTypesAdapter.JSP && fileType != StdFileTypesAdapter.JSPX) {
       return;
     }
 
