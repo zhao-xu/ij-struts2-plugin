@@ -15,6 +15,8 @@
 
 package com.intellij.struts2.reference;
 
+import com.intellij.jsp.highlighter.JspxFileType;
+import com.intellij.jsp.highlighter.NewJspFileType;
 import com.intellij.openapi.paths.PathReferenceManager;
 import com.intellij.patterns.XmlAttributeValuePattern;
 import com.intellij.psi.*;
@@ -22,7 +24,6 @@ import com.intellij.psi.css.impl.util.CssInHtmlClassOrIdReferenceProvider;
 import com.intellij.psi.impl.source.resolve.reference.impl.providers.IdRefReference;
 import com.intellij.psi.impl.source.resolve.reference.impl.providers.IdReferenceProvider;
 import com.intellij.psi.xml.XmlAttributeValue;
-import com.intellij.struts2.adapter.StdFileTypesAdapter;
 import com.intellij.struts2.reference.jsp.ActionPropertyReferenceProvider;
 import com.intellij.struts2.reference.jsp.ActionReferenceProvider;
 import com.intellij.util.ArrayUtil;
@@ -132,8 +133,8 @@ public abstract class StrutsTaglibReferenceContributorBase extends PsiReferenceC
    */
   private final XmlAttributeValuePattern jspElementPattern =
       xmlAttributeValue()
-          .inVirtualFile(or(virtualFile().ofType(StdFileTypesAdapter.JSP),
-                            virtualFile().ofType(StdFileTypesAdapter.JSPX)))
+          .inVirtualFile(or(virtualFile().ofType(NewJspFileType.INSTANCE),
+                            virtualFile().ofType(JspxFileType.INSTANCE)))
           .withSuperParent(2, xmlTag().withNamespace(getNamespace()));
 
   /**

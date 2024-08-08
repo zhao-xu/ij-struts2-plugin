@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.intellij"
-version = "2024.2"
+version = "2024.2+1"
 
 repositories {
     mavenCentral()
@@ -27,7 +27,8 @@ intellij {
         "com.intellij.velocity",
         "org.intellij.groovy",
         "JavaScript",
-        "com.intellij.java-i18n"
+        "com.intellij.java-i18n",
+        "com.intellij.jsp"
     ))
 }
 

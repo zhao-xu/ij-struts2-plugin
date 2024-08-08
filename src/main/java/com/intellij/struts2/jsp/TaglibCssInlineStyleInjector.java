@@ -14,6 +14,8 @@
  */
 package com.intellij.struts2.jsp;
 
+import com.intellij.jsp.highlighter.JspxFileType;
+import com.intellij.jsp.highlighter.NewJspFileType;
 import com.intellij.lang.injection.MultiHostInjector;
 import com.intellij.lang.injection.MultiHostRegistrar;
 import com.intellij.openapi.fileTypes.FileType;
@@ -25,7 +27,6 @@ import com.intellij.psi.PsiLanguageInjectionHost;
 import com.intellij.psi.css.CssFileType;
 import com.intellij.psi.xml.XmlAttributeValue;
 import com.intellij.struts2.StrutsConstants;
-import com.intellij.struts2.adapter.StdFileTypesAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -57,7 +58,7 @@ final class TaglibCssInlineStyleInjector implements MultiHostInjector, DumbAware
   @Override
   public void getLanguagesToInject(@NotNull final MultiHostRegistrar registrar, @NotNull final PsiElement context) {
     final FileType fileType = context.getContainingFile().getFileType();
-    if (fileType != StdFileTypesAdapter.JSP && fileType != StdFileTypesAdapter.JSPX) {
+    if (fileType != NewJspFileType.INSTANCE && fileType != JspxFileType.INSTANCE) {
       return;
     }
 
