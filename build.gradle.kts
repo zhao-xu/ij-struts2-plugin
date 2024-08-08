@@ -1,11 +1,11 @@
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.13.3"
+    id("org.jetbrains.kotlin.jvm") version "1.9.24"
+    id("org.jetbrains.intellij") version "1.17.3"
 }
 
 group = "com.intellij"
-version = "2024.1"
+version = "2024.2"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ java.sourceSets["main"].java {
 }
 
 intellij {
-    version.set("2024.1")
+    version.set("2024.2")
     type.set("IU") // Target IDE Platform
 
     plugins.set(listOf(
@@ -42,8 +42,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("241")
-        untilBuild.set("241.*")
+        sinceBuild.set("242")
+        untilBuild.set("242.*")
     }
 
     signPlugin {

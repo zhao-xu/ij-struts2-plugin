@@ -19,7 +19,9 @@ import com.intellij.jam.*;
 import com.intellij.jam.reflect.*;
 import com.intellij.pom.PomTarget;
 import com.intellij.psi.PsiAnnotation;
+import com.intellij.psi.PsiAnnotationMemberValue;
 import com.intellij.psi.PsiElementRef;
+import com.intellij.psi.PsiLiteral;
 import com.intellij.psi.PsiMember;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.struts2.dom.struts.strutspackage.InterceptorOrStackBase;
@@ -76,7 +78,8 @@ public final class JamInterceptorRef extends JamCommonModelElement<PsiMember> im
   @Nullable
   private PomTarget getPomTarget() {
     final JamStringAttributeElement<InterceptorOrStackBase> valueAttribute = getValue();
-    if (valueAttribute.getPsiLiteral() == null) {
+    PsiAnnotationMemberValue value = valueAttribute.getPsiElement();
+    if (!(value instanceof PsiLiteral)) {
       return null;
     }
     return new JamPomTarget(this, valueAttribute);
