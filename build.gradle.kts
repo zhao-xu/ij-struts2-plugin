@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.intellij"
-version = "2024.2+1"
+version = "2024.3"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ java.sourceSets["main"].java {
 }
 
 intellij {
-    version.set("2024.2")
+    version.set("2024.3")
     type.set("IU") // Target IDE Platform
 
     plugins.set(listOf(
@@ -43,8 +43,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("242")
-        untilBuild.set("242.*")
+        sinceBuild.set("243")
+        untilBuild.set("243.*")
     }
 
     signPlugin {
@@ -57,7 +57,7 @@ tasks {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 
-    test {
+    compileTestJava {
         exclude("**/*")
     }
 }
